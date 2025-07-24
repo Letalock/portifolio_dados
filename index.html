@@ -15,6 +15,7 @@
 
 
     <script src="menu.js" defer></script>
+    <script src="typewriter.js" defer></script> 
 
     <title>Portifólio Leticia</title>
 </head>
@@ -73,14 +74,13 @@
         <section id="inicio" class="topo-do-site">
             <div class="interface">
                 <div class="flex">
-                    <div class="txt-topo-site">
-                        <h1>Analista de Dados/BI🎲<span>.</span></h1>
-                        <p>Transformando dados em insights estratégicos para impulsionar decisões de negócio. Especializada na criação de dashboards personalizados que traduzem informações complexas em visualizações claras e acionáveis.</p>
-                        <div class="btn-contato">
-    <a href="/Potifolio/Curriculo Leticia.pdf" download="Curriculo_Leticia.pdf">
-        <button>Fale Comigo  →</button>
-    </a>
+                     <div class="txt-topo-site">
+                        <h1>Analista de <span id="animated-text" class="highlight glow-text"></span></h1>
+                            <p id="description-text">Transformando dados em insights estratégicos para impulsionar decisões de negócio. Especializada na criação de dashboards personalizados que traduzem informações complexas em visualizações claras e acionáveis.</p>
+                            <div class="btn-contato">
+    <a href="#contato" class="btn-fale-comigo">Fale Comigo →</a>
 </div>
+<hr class="linha-separadora">
                     </div><!--txt-topo-site-->
 
                     <div class="img-topo-site">
@@ -91,7 +91,7 @@
 
         <section id="especialidades" class="especiliadades">
             <div class="interface">
-                <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
+                <h2 class="titulo">ESPECIALIDADES DA <span>CASA.</span></h2>
                 <div class="flex">
                     <div class="especialidades-box">
                         <i class="bi bi-code-square"></i>
@@ -146,15 +146,15 @@
                     <div class="img-port" style="background-image: url(images/Dash.jpg);">
                         <div class="overlay">Dashboard Excel</div>
                     </div>
-                    <div class="img-port" style="background-image: url(images/imagem.jpg);">
-                        <div class="overlay">Projeto 3</div>
+                    <div class="img-port" style="background-image: url(images/proj.png);">
+                        <div class="overlay">Análise de Vendas</div>
                     </div>
                 </div><!--flex-->
             </div><!--interface-->
-        <!-- <div class="btn-ver-mais">
+        <div class="btn-ver-mais">
     <div class="btn-ver-mais">
     <a href="https://github.com/Letalock" target="_blank">
-        <button class="Projetosbutton"> Ver Mais </button> -->
+        <button class="Projetosbutton"> Ver Mais </button>
     </a>
 </div>
 
@@ -165,15 +165,60 @@
             <div class="interface">
                 <h2 class="titulo">FALE <span>COMIGO.</span></h2>
 
-                <form action="https://formspree.io/f/xyzkqvdv" method="POST">
-    <input type="text" name="name" placeholder="Seu nome completo:" required>
-    <input type="email" name="email" placeholder="Seu e-mail:" required>
-    <input type="text" name="phone" placeholder="Seu celular:">
-    <textarea name="message" placeholder="Sua mensagem" required></textarea>
-    <div class="btn-enviar">
-        <input type="submit" value="ENVIAR">
-    </div>
+<form id="form-contato">
+  <input type="text" name="name" placeholder="Seu nome completo:" required>
+  <input type="email" name="email" placeholder="Seu e-mail:" required>
+  <input type="text" name="phone" placeholder="Seu celular:">
+  <textarea name="message" placeholder="Sua mensagem" required></textarea>
+  <div class="btn-enviar">
+    <input type="submit" value="ENVIAR">
+  </div>
+  <!-- LOADER -->
+  <div id="loader" class="loader" style="display: none; margin: 20px auto;"></div>
+  <!-- MENSAGEM -->
+  <p id="mensagem-sucesso" style="color: #8c52ff; margin-top: 10px;"></p>
 </form>
+
+
+<script>
+document.getElementById("form-contato").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const form = e.target;
+    const loader = document.getElementById("loader");
+    const mensagem = document.getElementById("mensagem-sucesso");
+
+    // Mostrar loader
+    loader.style.display = "flex";
+    mensagem.innerText = "";
+
+    const data = {
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        message: form.message.value
+    };
+
+    try {
+        const resposta = await fetch("http://127.0.0.1:5000/contato", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        });
+
+        const resultado = await resposta.json();
+        mensagem.innerText = resultado.mensagem || resultado.erro;
+    } catch (erro) {
+        mensagem.innerText = "Erro ao enviar o formulário.";
+    } finally {
+        loader.style.display = "none";
+        form.reset();
+    }
+});
+</script>
+
 
             </div><!--interface-->
         </section><!--formulario-->
@@ -200,6 +245,22 @@
             </div><!--line-footer-->
         </div><!--interface-->
     </footer>
+<button id="btn-topo" title="Voltar ao topo"></button>
+<script>
+    // Mostrar ou esconder o botão ao rolar a página
+    window.onscroll = function() {
+        var btn = document.getElementById("btn-topo");
+        if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            btn.style.display = "block";
+        } else {
+            btn.style.display = "none";
+        }
+    };
 
+    // Voltar ao topo ao clicar
+    document.getElementById("btn-topo").onclick = function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+</script>
 </body>
 </html>

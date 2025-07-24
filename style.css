@@ -14,6 +14,7 @@ body {
 .interface {
     max-width: 1280px;
     margin: 0 auto;
+    
 }
 
 .flex {
@@ -21,8 +22,8 @@ body {
 }
 
 .btn-contato button {
-    padding: 10px 40px;
-    font-size: 18px;
+    padding: 8px 32px;
+    font-size: 17px;
     font-weight: 600;
     background-color: #8c52ff;
     border: 0;
@@ -42,25 +43,46 @@ h2.titulo span {
     color: #8c52ff;
 }
 
+h2.titulo span1 {
+    color: #0e5ae7ff;
+}
+
 button:hover,
 form .btn-enviar input:hover {
     box-shadow: 0px 0px 8px #8c52ff;
     transform: scale(1.05);
 }
 
+/*Estilo do highlight*/
+
+
+.glow-text {
+    color: #6ffcff;
+    font-weight: bold;
+    text-shadow:
+        0 0 5px #041516,
+        0 0 10px #9107b0,
+        0 0 20px #d00dda,
+        0 0 40px #940fcc,
+        0 0 80px #8c52ff;
+}
+
 /* ESTILO DO CABEÇALHO */
 header {
-    padding: 40px 1%;
+    padding: 7px 1%;
+    box-shadow: 0 0 30px 5px #ffffff1d;
+    border-radius: 20px;
 }
 
 header>.interface {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    min-height: 54px;
 }
 
 header a {
-    color: #5c5c5c;
+    color: #dbdada;
     text-decoration: none;
     display: inline-block;
     transition: .2s;
@@ -80,6 +102,15 @@ header nav.menu-desktop ul li {
     padding: 0 40px;
 }
 
+header nav.menu-desktop a {
+    font-size: 18px;
+}
+
+.logo img {
+    max-height: 90px;
+    width: auto;
+}
+
 /* Estilo Certificados */
 .certificados {
     padding: 80px 4%;
@@ -94,7 +125,7 @@ header nav.menu-desktop ul li {
 
 .descricao-cert {
     font-size: 1.2em;
-    color: #555;
+    color: #eeebeb;
     margin-bottom: 40px;
 }
 
@@ -131,7 +162,28 @@ header nav.menu-desktop ul li {
     transform: scale(1.05);
 }
 
+#btn-topo {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 999;
+    background-color: #8c52ff;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 2rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px #8c52ff80;
+    transition: background 0.2s, transform 0.2s;
+}
 
+#btn-topo:hover {
+    background-color: #6a36c9;
+    transform: scale(1.1);
+}
 
 /* ESTILO DO MENU MOBILE */
 
@@ -209,9 +261,10 @@ header nav.menu-desktop ul li {
 /* ESTILO DO TOPO DO SITE */
 section.topo-do-site {
     padding: 40px 4%;
+    margin-top: 8%;
 }
 
-section.topo-do-site .flex {
+section.topo-do-site .flex {    
     align-items: center;
     justify-content: center;
     gap: 90px;
@@ -231,6 +284,7 @@ section.topo-do-site .flex {
 .topo-do-site .txt-topo-site p {
     color: #fff;
     margin: 40px 0;
+    margin-bottom: 10%;
     text-align: center;
 }
 
@@ -252,7 +306,7 @@ section.topo-do-site .flex {
 
 /* ESTILO DAS ESPECIALIDADES */
 section.especiliadades {
-    padding: 40px 4%;
+    padding: 150px 4%;
 }
 
 section.especiliadades .flex {
@@ -465,7 +519,12 @@ footer .line-footer p a {
     /* CABEÇALHO */
     .menu-desktop,
     .btn-contato {
+
         display: none;
+    }
+
+    .btn{
+        margin-left: 90%;
     }
 
     /* TOPO DO SITE */
@@ -546,8 +605,8 @@ footer .line-footer p a {
     font-size: 18px;
     font-weight: bold;
     background-color: #8c52ff;
-    border: none;
-    border-radius: 5px;
+    margin-top: 30px;
+    border-radius: 20px;
     color: white;
     cursor: pointer;
     transition: 0.3s;
@@ -557,3 +616,82 @@ footer .line-footer p a {
     background-color: #6a36c9;
     transform: scale(1.1);
 }
+
+.btn-fale-comigo {
+    display: inline-block;
+    padding: 8px 32px;
+    font-size: 17px;
+    font-weight: 600;
+    background-color: #8c52ff;
+    border: 0;
+    border-radius: 30px;
+    color: #121212;
+    text-decoration: none;
+    cursor: pointer;
+    transition: .2s;
+    text-align: center;
+}
+.btn-fale-comigo:hover {
+    box-shadow: 0px 0px 8px #8c52ff;
+    transform: scale(1.05);
+    background-color: #6a36c9;
+}
+
+.btn-contato {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* ajuste conforme necessário */
+}
+
+.linha-separadora {
+    border: none;
+    height: 2px;
+    width: 60%;
+    margin: 40px auto 0 auto;
+    background: linear-gradient(90deg, transparent, #fff 40%, #fff 60%, transparent);
+    box-shadow: 0 0 10px 2px #fff;
+    opacity: 0.3;
+}
+.loader, .loader::before, .loader::after {
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 10px;
+  animation: rotate 5s linear infinite;
+}
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-color: #5a4ff3;
+}
+
+.loader::before, .loader::after {
+  position: absolute;
+  content: "";
+}
+
+.loader::before {
+  border-color: #35a2d2;
+  width: 110%;
+  height: 110%;
+  animation-delay: .5s;
+}
+
+.loader::after {
+  border-color: #9c40fc;
+  width: 120%;
+  height: 120%;
+  animation-delay: .10s;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
