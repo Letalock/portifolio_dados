@@ -19,7 +19,7 @@ SMTP_PORT = 587
 
 print("FROM:", EMAIL_FROM)
 print("TO:", EMAIL_TO)
-print("PASS:", EMAIL_PASS[:3], "***")
+# print("PASS:", EMAIL_PASS[:3], "***")
 
 @app.route("/contato", methods=["POST"])
 def receber_contato():
