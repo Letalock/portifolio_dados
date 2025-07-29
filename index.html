@@ -259,7 +259,7 @@ document.getElementById("form-contato").addEventListener("submit", async functio
     };
 
     try {
-        const resposta = await fetch("https://portfolio-backend.onrender.com/contato", {
+        const resposta = await fetch("/contato", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
