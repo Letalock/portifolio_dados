@@ -306,7 +306,7 @@ section.topo-do-site .flex {
 
 /* ESTILO DAS ESPECIALIDADES */
 section.especiliadades {
-    padding: 150px 4%;
+    padding: 100px 10%;
 }
 
 section.especiliadades .flex {
@@ -338,7 +338,7 @@ section.especiliadades .flex {
 
 /* ESTILO DO SOBRE */
 section.sobre {
-    padding: 80px 4%;
+    padding: 40px 4%;
 }
 
 section.sobre .flex {
@@ -386,7 +386,7 @@ section.portfolio {
 
 section.portfolio .flex {
     justify-content: space-around;
-    margin-top: 60px;
+    margin-top: 80px;
 }
 
 .img-port {
@@ -695,3 +695,125 @@ footer .line-footer p a {
   }
 }
 
+.ferramentas {
+    background: #000;
+    padding: 80px 4%;
+}
+
+.ferramentas .titulo {
+    color: #fff;
+    /* text-align: left; */
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.ferramentas .titulo::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #8c52ff;
+}
+
+.descricao-ferramentas {
+    color: #dbdada;
+    text-align: center;
+    max-width: 700px;
+    margin: 40px auto 60px auto;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.ferramentas-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.ferramenta-card {
+    background: #000;
+    border-radius: 15px;
+    border: 2px solid #8c52ff;
+    padding: 30px 25px;
+    min-width: 280px;
+    max-width: 320px;
+    flex: 1 1 300px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ferramenta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(140, 82, 255, 0.3);
+}
+
+.ferramenta-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.ferramenta-header i {
+    font-size: 2rem;
+    color: #8c52ff;
+}
+
+.ferramenta-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ferramenta-card li {
+    color: #fff;
+    background: #242424;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+    font-weight: 500;
+    border: 1px solid #8c52ff;
+    transition: background 0.2s, color 0.2s;
+}
+
+.ferramenta-card li i {
+    color: #8c52ff;
+    font-size: 1rem;
+}
+
+.ferramenta-card li:hover {
+    background: #8c52ff;
+    color: #000;
+}
+
+@media (max-width: 900px) {
+    .ferramentas-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .ferramenta-card {
+        max-width: 95vw;
+    }
+    
+    .ferramentas .titulo {
+        text-align: center;
+    }
+    
+    .ferramentas .titulo::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
