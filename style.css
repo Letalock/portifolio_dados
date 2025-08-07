@@ -193,11 +193,23 @@ header nav.menu-desktop a {
 
 .btn-abrir-menu{
     display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 10px;
+    position: relative;
+    z-index: 1000;
 }
 
 .btn-abrir-menu i{
     color: #8c52ff;
     font-size: 40px;
+    transition: .3s;
+}
+
+.btn-abrir-menu:hover i{
+    color: #fff;
+    transform: scale(1.1);
 }
 
 .menu-mobile{
@@ -210,6 +222,7 @@ header nav.menu-desktop a {
     width: 0%;
     overflow: hidden;
     transition: .5s;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.3);
 }
 
 .menu-mobile.abrir-menu{
@@ -220,18 +233,27 @@ header nav.menu-desktop a {
     display: block;
 }
 
-
 .menu-mobile .btn-fechar{
     padding: 20px 5%;
+    text-align: right;
 }
 
 .menu-mobile .btn-fechar i{
     color: #8c52ff;
     font-size: 30px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.menu-mobile .btn-fechar i:hover{
+    color: #fff;
 }
 
 .menu-mobile nav ul{
     text-align: right;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .menu-mobile nav ul li a{
@@ -240,11 +262,15 @@ header nav.menu-desktop a {
     font-weight: 300;
     padding: 20px 8%;
     display: block;
+    text-decoration: none;
+    transition: .3s;
+    border-bottom: 1px solid #333;
 }   
 
 .menu-mobile nav ul li a:hover{
     background-color: #8c52ff;
     color: #000;
+    padding-left: 12%;
 }
 
 .overlay-menu{
@@ -517,14 +543,20 @@ footer .line-footer p a {
     }
 
     /* CABEÇALHO */
-    .menu-desktop,
+    header .menu-desktop,
+    header .btn-contato,
+    header .interface .btn-contato,
+    header .interface > .btn-contato,
     .btn-contato {
-
-        display: none;
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
     }
 
-    .btn{
-        margin-left: 90%;
+    header .btn-abrir-menu {
+        display: block !important;
+        position: relative;
+        z-index: 1000;
     }
 
     /* TOPO DO SITE */
