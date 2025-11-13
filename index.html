@@ -224,62 +224,17 @@
                 <h2 class="titulo">FALE <span>COMIGO.</span></h2>
 
 <form id="form-contato">
-  <input type="text" name="name" placeholder="Seu nome completo:" required>
-  <input type="email" name="email" placeholder="Seu e-mail:" required>
-  <input type="text" name="phone" placeholder="Seu celular:">
-  <textarea name="message" placeholder="Sua mensagem" required></textarea>
-  <div class="btn-enviar">
-    <input type="submit" value="ENVIAR">
+      <a href="https://wa.me/5511951564616?text=Olá!%20Vi%20seu%20portfólio%20e%20gostaria%20de%20falar%20sobre%20um%20projeto." 
+      target="_blank" 
+      class="btn-whatsapp"> WhatsApp
+</a>
+      </div>
   </div>
   <!-- LOADER -->
   <div id="loader" class="loader" style="display: none; margin: 20px auto;"></div>
   <!-- MENSAGEM -->
   <p id="mensagem-sucesso" style="color: #8c52ff; margin-top: 10px;"></p>
 </form>
-
-
-<script>
-document.getElementById("form-contato").addEventListener("submit", async function (e) {
-    e.preventDefault();
-
-    const form = e.target;
-    const loader = document.getElementById("loader");
-    const mensagem = document.getElementById("mensagem-sucesso");
-
-    // Mostrar loader
-    loader.style.display = "flex";
-    mensagem.innerText = "";
-
-    const data = {
-        name: form.name.value,
-        email: form.email.value,
-        phone: form.phone.value,
-        message: form.message.value
-    };
-
-    try {
-        const resposta = await fetch("https://portfolio-backend.onrender.com/contato", {
-
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(data)
-        });
-
-        const resultado = await resposta.json();
-        mensagem.innerText = resultado.mensagem || resultado.erro;
-    } catch (erro) {
-        mensagem.innerText = "Erro ao enviar o formulário.";
-    } finally {
-        loader.style.display = "none";
-        form.reset();
-    }
-});
-</script>
-
-
-            </div><!--interface-->
         </section><!--formulario-->
 
     </main>
