@@ -17,6 +17,11 @@ body {
     
 }
 
+:root {
+    /* cor principal usada pelo botão WhatsApp (fallback definido onde usado também) */
+    --color: #25D366;
+}
+
 .flex {
     display: flex;
 }
@@ -462,12 +467,58 @@ form {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    align-items: center; /* centraliza filhos horizontalmente quando em column */
     flex-direction: column;
     gap: 10px;
     margin-top: 40px;
 }
 
-form input,
+/* Botão WhatsApp */
+.btn-whatsapp {
+    font-family: inherit;
+    display: inline-block;
+    width: 6em;
+    height: 2.6em;
+    line-height: 2.5em;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 20px 0; /* margem vertical apenas para manter o botão centralizado */
+    font-size: 17px;
+    z-index: 1;
+    /* usa a variável --color definida em :root; inclui fallback se a variável não existir */
+    color: var(--color, #25D366);
+    border: 2px solid var(--color, #25D366);
+    border-radius: 6px;
+    position: relative;
+    text-align: center;
+    text-decoration: none; /* remove sublinhado caso seja um <a> */
+    background: transparent;
+}
+
+.btn-whatsapp::before {
+    position: absolute;
+    content: "";
+    background: var(--color, #25D366);
+    width: 150px;
+    height: 200px;
+    z-index: -1;
+    border-radius: 50%;
+    top: 100%;
+    left: 100%;
+    transition: 0.3s all;
+}
+
+.btn-whatsapp:hover {
+    color: white;
+}
+
+.btn-whatsapp:hover::before {
+    top: -30px;
+    left: -30px;
+}
+
+
+
 form textarea {
     width: 100%;
     background-color: #242424;
@@ -530,8 +581,7 @@ footer .line-footer p a {
 
     /* CLASSES GERAIS */
     .flex {
-        flex-direction: column;
-    }
+      
 
     .topo-do-site .flex{
         flex-direction: column-reverse;
