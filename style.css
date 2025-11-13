@@ -581,7 +581,8 @@ footer .line-footer p a {
 
     /* CLASSES GERAIS */
     .flex {
-      
+        flex-direction: column;
+    }
 
     .topo-do-site .flex{
         flex-direction: column-reverse;
